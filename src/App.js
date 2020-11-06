@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
+import { Route, Switch, Link } from 'react-router-dom';
 import './App.css';
+import axios from 'axios';
+import Pokemons from './components/Pokemons';
 
-function App() {
+const App = () => {
+const { pokemons , setPokemons} = useState(null);
+
+useEffect (() => {
+ fetch('/pokemon')
+ .then(res => res.json())
+ .then(data => console.log(data[0]))
+//  .then(res => setPokemons(res[0]))
+ .catch(err => console.log(err))
+  },[]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      { pokemons && <p>{pokemons[0].id}</p>}
+      {/* <Link to='/'>Home</Link>
+      <Link to='/pokemons'>Pokemeons Page</Link>
+      <Link to='/pokemoninfo'>Pokemon Info Page</Link>
+      <Link to='/pokemonfight'>Pokemon Fight Page</Link> */}
+
+      <Switch>
+    <Route path="/pokemons/:id?" component={Pokemons}></Route>
+        <Route path="/pokemoninfo">Pokemon Info Page</Route>
+        <Route path="/pokemonfight">Pokemon Fight Page</Route>
+        {/* <Route exact path="/" component={Home} /> */}
+      </Switch>
+
+      <h1>Hello World!!!!</h1>
     </div>
   );
 }
