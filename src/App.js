@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
-import './App.css';
+
 //import axios from 'axios';
 import Pokemons from './components/Pokemons';
 
@@ -27,7 +27,6 @@ useEffect (() => {
         <Route path="/pokemons/:id?" render ={(props) => <Pokemons pokemons = {pokemons} {...props}/>} />
         <Route path="/pokemoninfo">Pokemon Info Page</Route>
         <Route path="/pokemonfight">Pokemon Fight Page</Route>
-        {/* <Route exact path="/" component={Home} /> */}
       </Switch>
     </div>
   );

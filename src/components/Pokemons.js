@@ -1,8 +1,9 @@
 import React from 'react';
 import PokemonInfo from './PokemonInfo';
 
-const Pokemons = ( { pokemons, match, history } ) => {
 
+const Pokemons = ( { pokemons, match, history } ) => {
+    
     return (
         <>
             {pokemons && 

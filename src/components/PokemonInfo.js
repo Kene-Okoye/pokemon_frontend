@@ -1,10 +1,24 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 
 const PokemonInfo = ({ pokemon }) => {
 const types = pokemon.type;
-const abilities = pokemon.pokedata.abilities.ability.name;
-console.log (abilities);
+
+const [pokeInfo, setPokeInfo] = useState(null);
+console.log({pokeInfo: pokeInfo})
+
+useEffect (() => {
+  fetch('/pokemon/:id')
+  .then(res => res.json())
+  .then(data => console.log({newInfo: data}))
+  .catch(err => console.log(err))
+},[]);
+
+
+// const {pokedata:{sprites}} = pokemon; // pokemon.pokedata.sprites destructure
+// const imageURI = sprites.front_default;
+//<img src ={pokemon.pokedata.sprites.front_default}/>
+console.log ({pokemonInfo: pokemon});
 
     return (
         <div className = "pokeInfo">
@@ -35,17 +49,7 @@ console.log (abilities);
                 : ""
                 }
             </ul>
-            <ul>
-                <h3>Abilities</h3>
-                { abilities 
-                ? abilities.map(item =>{
-                    return (
-                        <li>{item.ability.name}</li>                        
-                    )
-                })
-                : ""
-                }
-            </ul>
+            
             </>          
         </div>
     )
