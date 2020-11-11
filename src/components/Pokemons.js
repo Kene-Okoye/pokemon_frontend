@@ -1,6 +1,5 @@
 import React from 'react';
-import PokemonInfo from './PokemonInfo';
-
+import Pokemon from './Pokemon';
 
 const Pokemons = ( { pokemons, match, history } ) => {
     
@@ -10,10 +9,10 @@ const Pokemons = ( { pokemons, match, history } ) => {
                 pokemons
                 .filter(pokemon =>
                     match.params.id ? 
-                    parseInt(match.params.id, 10) === pokemon.id : 
+                    parseInt(match.params.id, 10) === pokemon.pokeDexData.id : 
                     pokemon
                 ).map((pokemon) => { 
-                    return  <PokemonInfo pokemon={pokemon} key={pokemon.id} />
+                    return  <Pokemon pokemon={pokemon} key={pokemon.pokeDexData.id} />
                 })
             }
 
