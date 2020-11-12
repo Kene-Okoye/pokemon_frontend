@@ -24,6 +24,7 @@ useEffect (() => {
       <Link to='/pokemonfight'>Pokemon Fight Page</Link> */}
 
       <Switch>
+        {/* <Route path="/pokemons/" render ={(props) => <Pokemons pokemons = {pokemons} {...props}/>} /> */}
         <Route path="/pokemons/:id?" render ={(props) => <Pokemons pokemons = {pokemons} {...props}/>} />
         <Route path="/pokemoninfo">Pokemon Info Page</Route>
         <Route path="/pokemonfight">Pokemon Fight Page</Route>
