@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, Typography, Divider, Grid } from '@material-ui/core';
+import PokemonCards from './PokemonCards'
 
 // Define styles to use
 const useStyles = makeStyles((theme) => ({
@@ -51,13 +52,16 @@ const useStyles = makeStyles((theme) => ({
     },
 
     typeStyle: {
-        background: 'linear-gradient(160deg,#315c34 0%, #cced60 80%);',
+        background: 'linear-gradient(160deg,#315c34 0%, #cced60 80%)',
         marginTop: '2px', padding: '5px 50px',
         borderRadius: '50px',
     }
 }));
 
-const Pokemon = ({ pokemon }) => {
+const Pokemon = ({ pokemon}) => {
+    // console.log(pokemon)
+    // const { name, base, id} = pokemon.pokeDexData;
+    // console.log(name)
     const { name, base, id} = pokemon.pokeDexData
     const types = pokemon.pokeDexData.type;
     const imgSrc = pokemon.pokeApiData.sprites.front_default
@@ -65,7 +69,7 @@ const Pokemon = ({ pokemon }) => {
 
     // define stylses class states and call the its function 
     const classes = useStyles()
-
+// return (<>Pokemon Info</>)
     return (
             <>
                 <h3><Link to= {`/pokemons/${id}`}> POKEDEX#: {id}</Link></h3>
@@ -106,6 +110,12 @@ const Pokemon = ({ pokemon }) => {
                         </Card>
                     </Card>
                 </Grid>
+                </>          
+    )
+
+}
+
+                
             {/* <ul>      
                 <h3>Name</h3>          
                 <li>English:{name.english}  </li>
@@ -134,11 +144,7 @@ const Pokemon = ({ pokemon }) => {
                 }
             </ul> */}
             
-            </>          
-    )
-
-}
-
+       
 export default Pokemon;
 
 
