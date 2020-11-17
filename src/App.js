@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch, Link, useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Pokemons from './components/Pokemons';
 import Home from './components/Home'
@@ -23,8 +23,20 @@ const useStyles =  makeStyles((theme) => ({
 
 const App = () => {
 const [pokemons , setPokemons] = useState(null);
+let history = useHistory();
 console.log({pokemons: pokemons})
 const classes = useStyles();
+
+// Select 2 Pokemons 
+const [ selectedPokemon, setSelectedPokemon ] = useState({player: null, opponent: null});
+console.log({selectedPokemon})
+
+useEffect (() => {
+  if (selectedPokemon.player && selectedPokemon.opponent) {
+    history.push ('/pokemonfight')
+  }
+}, [selectedPokemon])
+
 
 useEffect (() => {
   fetch('/pokemon')
@@ -158,10 +170,10 @@ useEffect (() => {
         }
       }}     /> 
 <Switch>
-        <Route path="/pokemons/:id?" render ={(props) => <Pokemons pokemons = {pokemons} {...props}/>} />
+        <Route path="/pokemons/:id?" render ={(props) => <Pokemons pokemons = {pokemons} {...props} onSelect ={ setSelectedPokemon } selectedPokemon = {selectedPokemon}/>} />
         {/* <Route exact path="/pokemons/:id?" render ={(props) => <Pokemon pokemons = {pokemons} {...props}/>} /> */}
         <Route path="/pokemoninfo">Pokemon Info Page</Route>
-        <Route path="/pokemonfight" ><PokemonFight fighters = {pokemons} /></Route>
+        <Route path="/pokemonfight" ><PokemonFight pokemons = {pokemons} selectedPokemon = {selectedPokemon} /></Route>
         <Route exact path="/" render ={(props) => <Home pokemons = {pokemons} {...props}/>}></Route>
       </Switch>
     </div>

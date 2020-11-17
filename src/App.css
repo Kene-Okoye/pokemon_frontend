@@ -8,3 +8,11 @@
   z-index: -1;
   background: #111;
 }
+
+.displayNothing {
+  display: none;
+}
+
+.displayWinner {
+  color: pink;
+}
