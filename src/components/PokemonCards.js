@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Card, CardContent, Grid, Typography, CardMedia } from '@material-ui/core';
+import classNames from 'classnames';
 import Pokemon from './Pokemon'
 
 // Make styles to use 
@@ -41,10 +42,16 @@ const useStyles = makeStyles ((theme) => ({
     link: {
         textDecoration: 'none',
         color: 'black'
+    },
+
+    more: {
+        textDecoration: 'none',
+        color: 'white'
     }
 }))
 
-const PokemonCards = ({ pokemon }) => {
+const PokemonCards = ({ pokemon, onSelect, selectedPokemon }) => {
+    // console.log(passedFunction)
     // extract needed data from the props 
     const { name, base, id} = pokemon.pokeDexData;
     const types = pokemon.pokeDexData.type;
@@ -57,12 +64,17 @@ const PokemonCards = ({ pokemon }) => {
     // let array = [];
 
     const handleSelect = () => {
-        setFighters( arr => [...arr, `${id}`]);
+        if (selectedPokemon.player) {
+           return onSelect({...selectedPokemon, opponent:id});
+        }  
+        onSelect({...selectedPokemon, player:id});
     };
+
+
 
     
 
-    console.log(fighters)
+    // console.log(fighters)
 
 //     const handleSelect = () =>{
 //     console.log(id)
@@ -92,8 +104,8 @@ const PokemonCards = ({ pokemon }) => {
                     <CardMedia className={classes.cardMedia}  image={pokemonHDImage} />
                     <CardContent className={classes.cardContent}>
                         <Typography variant='body1' className={classes.typo}><Link className={classes.link}>{name.english}</Link></Typography>
-                        <Button variant="contained" className={classes.button}><Link to= {`/pokemons/${id}`} render ={(props) => <Pokemon pokemonInfo = {pokemon.pokeDexData} {...props}/>}>More</Link></Button>
-                        <Button variant="contained" className={classes.button} onClick={ handleSelect }>Select</Button>
+                        <Button variant="contained" className={classes.button}><Link className={classes.more} to= {`/pokemons/${id}`} render ={(props) => <Pokemon pokemonInfo = {pokemon.pokeDexData} {...props}/>}>More</Link></Button>
+                        <Button variant="contained" className={classes.button} onClick={handleSelect} >Select</Button>
                         {/* <Link to= {`/pokemons/${id}`}render ={(props) => <Pokemons pokemon = {pokemon} {...props}/>}/> */}
                     </CardContent>
                 </Card>

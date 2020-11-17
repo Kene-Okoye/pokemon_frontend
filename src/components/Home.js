@@ -30,7 +30,12 @@ const useStyles = makeStyles((theme) => ({
         width: '120px',
         height: '40px',
         background: 'linear-gradient(159deg,#ea9a07 0%, #f71212 80%)',
-        fontSize: '1.2rem'
+        fontSize: '1.2rem',
+    },
+
+    link: {
+        textDecoration: 'none',
+        color: 'white'
     }
 }))
 
@@ -43,7 +48,7 @@ const Home = () => {
                 <Grid item >
                     <img src='https://images8.alphacoders.com/770/770462.png' alt='Pokemon logo image' className={classNames(classes.image, classes.imageDesktop)}/>
                 </Grid>
-                <Grid item><Button variant="contained" className={classes.playButton}><Link to={'/Pokemons'}>Play</Link></Button></Grid>
+                <Grid item><Button variant="contained" className={classes.playButton}><Link className={classes.link} to={'/Pokemons'}>Play</Link></Button></Grid>
                 <Grid>
                 <div class="ball">
                     <div class="button"></div>
