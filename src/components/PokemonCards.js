@@ -60,8 +60,6 @@ const PokemonCards = ({ pokemon, onSelect, selectedPokemon }) => {
     // Pokemon Fighting Logic (useStates)
     // create States
     const [ fighters, setFighters ] = useState([]);
-    // let counter = 0;
-    // let array = [];
 
     const handleSelect = () => {
         if (selectedPokemon.player) {
@@ -69,26 +67,6 @@ const PokemonCards = ({ pokemon, onSelect, selectedPokemon }) => {
         }  
         onSelect({...selectedPokemon, player:id});
     };
-
-
-
-    
-
-    // console.log(fighters)
-
-//     const handleSelect = () =>{
-//     console.log(id)
-//     if (counter < 2 ){
-//         counter++;
-//         array.push(id);
-//         }   else if (counter = 2) {
-//         setFighters = [...array]
-//         counter = 0;
-//         array = [];
-//     }
-//     console.log(array)
-// } 
-    // console.log(array)
 
     //import HD image from external image API
     const pokemonHDImage = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`;
