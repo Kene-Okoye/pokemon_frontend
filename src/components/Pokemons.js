@@ -15,7 +15,8 @@ const useStyles = makeStyles((theme) => ({
 
     choose: {
         textAlign: 'center',
-        color: 'white'
+        color: 'white',
+        marginTop: '20px'
     },
 
     loaderContainer: {
