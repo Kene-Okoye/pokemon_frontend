@@ -38,7 +38,7 @@ const Pokemons = ( { pokemons, match, history, onSelect, selectedPokemon } ) => 
 //     console.log(trial)
 
     return (
-        <>
+        <>  
             <Typography variant='h3' className={classes.choose}>Choose your Pokémon</Typography>
             <Grid container className={classNames(classes.gridContainer)} spacing={2}>
             {pokemons ? 
@@ -49,7 +49,7 @@ const Pokemons = ( { pokemons, match, history, onSelect, selectedPokemon } ) => 
                     pokemon)
                .map((pokemon) => {  
                     return match.params.id ? <Pokemon pokemon={pokemon} key={pokemon.pokeDexData.id} onSelect = { onSelect } selectedPokemon = { selectedPokemon }/> 
-                    : <PokemonCards pokemon={pokemon} key={pokemon.pokeDexData.id} onSelect ={ onSelect } selectedPokemon = { selectedPokemon }/>              
+                    : <PokemonCards pokemon={pokemon} key={pokemon.pokeDexData.id} onSelect ={ onSelect } selectedPokemon = { selectedPokemon }/>         
                 })
                 : <Grid container className={classNames(classes.gridContainer, classes.loaderContainer)}>
                     <CircularProgress />

@@ -81,7 +81,7 @@ const PokemonCards = ({ pokemon, onSelect, selectedPokemon }) => {
     const classes = useStyles()
     
     return (
-        <>
+        <>  
             <Grid item xs={12} sm={6} md={3}   key={{id}}>
             {/* 'linear-gradient(65deg,rgba(0,185,251,0.22) 0%, rgba(20,140,186,0.66) 80%)' */}
             <animated.div
@@ -104,6 +104,5 @@ const PokemonCards = ({ pokemon, onSelect, selectedPokemon }) => {
         </>
     )
 }
-
 
 export default PokemonCards

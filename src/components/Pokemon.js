@@ -1,18 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, Typography, Divider, Grid } from '@material-ui/core';
+import { Card, Typography, Divider, Grid, Button } from '@material-ui/core';
 import PokemonCards from './PokemonCards'
 
 // Define styles to use
 const useStyles = makeStyles((theme) => ({
+    backButton: {
+        textDecoration: 'none',
+        color: 'white'
+    },
+
     backgroundCard: {
         background: 'linear-gradient(160deg,#cced60 0%, #315c34 80%)',
         width: '500px',
         height: '700px',
         position: 'absolute',
         top: '0px',
-        marginTop: '80px',
+        marginTop: '150px',
         borderRadius: '10px',
         borderBottomLeftRadius: '25px',
         borderBottomRightRadius: '25px',
@@ -71,9 +76,9 @@ const Pokemon = ({ pokemon}) => {
     const classes = useStyles()
 // return (<>Pokemon Info</>)
     return (
-            <>
-                <h3><Link to= {`/pokemons/${id}`}> POKEDEX#: {id}</Link></h3>
-                <Grid container alignItems='center' justify='center'>
+            <>  
+                <Button color='primary' variant="contained" ><Link className={classes.backButton} to='/pokemons'>Back</Link></Button>
+                <Grid container alignItems='center' justify='center' style={{marginTop: '15px'}}>
                     <Card className={classes.backgroundCard}>
                         <img src = {pokemonHDImage} className={classes.imageStyle}/>
                         <Card className={classes.topCard}>

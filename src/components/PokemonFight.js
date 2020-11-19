@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Card, CardContent, Grid, Typography, CardMedia } from '@material-ui/core';
 import '../App.css';
 
 
 const useStyles = makeStyles((theme) => ({
+    backButton: {
+        textDecoration: 'none',
+        color: 'white'
+    },
+
     card: {
         background: 'linear-gradient(65deg,rgba(0,185,251,0.22) 0%, rgba(20,140,186,0.66) 80%)' ,
         margin: '10px',
@@ -64,6 +70,7 @@ const PokemonFight = ( { pokemons, selectedPokemon } ) => {
 
     return (
         <>
+            <Button color='primary' variant="contained"><Link to='/pokemons' className={classes.backButton} >Back</Link></Button>
             <Grid container className={classes.gridContainer}>
                 <Grid xs={12}><Typography variant={'h5'} className={classes.fighterTypo}>VS</Typography></Grid>
                 
