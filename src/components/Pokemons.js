@@ -29,14 +29,6 @@ const useStyles = makeStyles((theme) => ({
 const Pokemons = ( { pokemons, match, history, onSelect, selectedPokemon } ) => {
     const classes = useStyles();
 
-// var a = 1;
-// var b = 2;
-//     const [ trial, setTrial ] = useState()
-//     const passedFunction =() =>{
-//         setTrial(a + b);
-//     }
-//     console.log(trial)
-
     return (
         <>  
             <Typography variant='h3' className={classes.choose}>Choose your Pokémon</Typography>

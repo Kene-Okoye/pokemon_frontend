@@ -61,10 +61,6 @@ const PokemonFight = ( { pokemons, selectedPokemon } ) => {
     
 
     const handleFight = () => {
-        // let player1 = Math.floor(Math.random()) + a
-        // let player2 = Math.floor(Math.random()) + a
-        // winnerId = Math.max(selectedPokemon.player, selectedPokemon.opponent)
-        // setWinner(Math.max(selectedPokemon.player, selectedPokemon.opponent))
         setWinner(Math.max(selectedPokemon.player, selectedPokemon.opponent))
     }
 
@@ -92,9 +88,7 @@ const PokemonFight = ( { pokemons, selectedPokemon } ) => {
                                 </Card>
                             </Grid>
 
-                            <h1 style={{color: 'white'}} key={ pokemon.pokeDexData.id }></h1>
-                            {/* <div className={winner? "displayWinner" : "displayNothing"}>Winner is {`pokemon.pokeDexData.${winner}`}</div> */}
-                            
+                            <h1 style={{color: 'white'}} key={ pokemon.pokeDexData.id }></h1>                            
                         </>
                     )
                 })

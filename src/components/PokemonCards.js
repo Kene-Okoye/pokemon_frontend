@@ -57,7 +57,7 @@ const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg)
 
 const PokemonCards = ({ pokemon, onSelect, selectedPokemon }) => {
     const [props, set] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } }))
-    // console.log(passedFunction)
+    
     // extract needed data from the props 
     const { name, base, id} = pokemon.pokeDexData;
     const types = pokemon.pokeDexData.type;
@@ -83,7 +83,6 @@ const PokemonCards = ({ pokemon, onSelect, selectedPokemon }) => {
     return (
         <>  
             <Grid item xs={12} sm={6} md={3}   key={{id}}>
-            {/* 'linear-gradient(65deg,rgba(0,185,251,0.22) 0%, rgba(20,140,186,0.66) 80%)' */}
             <animated.div
             class="card"
             onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
@@ -96,7 +95,6 @@ const PokemonCards = ({ pokemon, onSelect, selectedPokemon }) => {
                         <Typography variant='body1' className={classes.typo}><Link className={classes.link}>{name.english}</Link></Typography>
                         <Button variant="contained" className={classes.button}><Link className={classes.more} to= {`/pokemons/${id}`} render ={(props) => <Pokemon pokemonInfo = {pokemon.pokeDexData} {...props}/>}>More</Link></Button>
                         <Button variant="contained" className={classes.button} onClick={handleSelect} >Select</Button>
-                        {/* <Link to= {`/pokemons/${id}`}render ={(props) => <Pokemons pokemon = {pokemon} {...props}/>}/> */}
                     </CardContent>
                 </Card>
             </animated.div>

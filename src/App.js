@@ -47,11 +47,6 @@ useEffect (() => {
 
   return (
     <div className="App" className={classNames(classes.gridMargin)} >
-      {/* { pokemons && <p>{pokemons[0].id}</p>}
-      <Link to='/'>Home</Link>
-      <Link to='/pokemons'>Pokemeons Page</Link>
-      <Link to='/pokemoninfo'>Pokemon Info Page</Link>
-      <Link to='/pokemonfight'>Pokemon Fight Page</Link> */}
       <Particles className="particles" 
       params={{
         particles: {
@@ -171,7 +166,6 @@ useEffect (() => {
       }}     /> 
 <Switch>
         <Route path="/pokemons/:id?" render ={(props) => <Pokemons pokemons = {pokemons} {...props} onSelect ={ setSelectedPokemon } selectedPokemon = {selectedPokemon}/>} />
-        {/* <Route exact path="/pokemons/:id?" render ={(props) => <Pokemon pokemons = {pokemons} {...props}/>} /> */}
         <Route path="/pokemoninfo">Pokemon Info Page</Route>
         <Route path="/pokemonfight" ><PokemonFight pokemons = {pokemons} selectedPokemon = {selectedPokemon} /></Route>
         <Route exact path="/" render ={(props) => <Home pokemons = {pokemons} {...props}/>}></Route>

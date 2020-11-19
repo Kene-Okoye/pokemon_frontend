@@ -64,9 +64,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Pokemon = ({ pokemon}) => {
-    // console.log(pokemon)
-    // const { name, base, id} = pokemon.pokeDexData;
-    // console.log(name)
     const { name, base, id} = pokemon.pokeDexData
     const types = pokemon.pokeDexData.type;
     const imgSrc = pokemon.pokeApiData.sprites.front_default
@@ -74,7 +71,7 @@ const Pokemon = ({ pokemon}) => {
 
     // define stylses class states and call the its function 
     const classes = useStyles()
-// return (<>Pokemon Info</>)
+
     return (
             <>  
                 <Button color='primary' variant="contained" ><Link className={classes.backButton} to='/pokemons'>Back</Link></Button>
@@ -118,37 +115,7 @@ const Pokemon = ({ pokemon}) => {
                 </>          
     )
 
-}
-
-                
-            {/* <ul>      
-                <h3>Name</h3>          
-                <li>English:{name.english}  </li>
-                <li>Japanese:{name.japanese}  </li>
-                <li>Chinese:{name.chinese}  </li>
-                <li>French:{name.french}  </li>
-            </ul>
-            <ul>
-                <h3>Base</h3>
-                <li>HP:{base.HP} </li>
-                <li>Attack:{base.Attack}</li>
-                <li>Defense:{base.Defense}</li>
-                <li>Sp. Attack:{base["Sp. Attack"]}</li>
-                <li>Sp. Defense:{base["Sp. Defense"]}</li>
-                <li>Speed:{base.Speed}  </li>
-            </ul>
-            <ul>
-                <h3>Type</h3>
-                { types 
-                ? types.map(type =>{
-                    return (
-                        <li>{type}</li>
-                    )
-                })
-                : ""
-                }
-            </ul> */}
-            
+}        
        
 export default Pokemon;
 
