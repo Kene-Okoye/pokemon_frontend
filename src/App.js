@@ -39,7 +39,7 @@ useEffect (() => {
 
 
 useEffect (() => {
-  fetch('/api/pokemon')
+  fetch('/pokemon')
   .then(res => res.json())
   .then(data => setPokemons(data))
   .catch(err => console.log(err))
