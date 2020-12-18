@@ -15,7 +15,7 @@ const useStyles = makeStyles ((theme) => ({
     gridContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-      },
+    },
 
     cardMedia: {
         margin: 'auto',
@@ -27,22 +27,23 @@ const useStyles = makeStyles ((theme) => ({
 
     cardContent: {
         textAlign: 'center',
-      },
+    },
 
     button: {
         margin: theme.spacing(1),
         borderRadius: '50px',
         background: '#115293',
-        color: 'white'
+        color: 'white',
+        fontFamily: 'Goldman, cursive'
     },
 
     typo: {
-        fontWeight: 'bold'
+        fontFamily: 'Goldman, cursive'
     },
     
     link: {
         textDecoration: 'none',
-        color: 'black'
+        color: 'black',
     },
 
     more: {
@@ -69,7 +70,7 @@ const PokemonCards = ({ pokemon, onSelect, selectedPokemon }) => {
 
     const handleSelect = () => {
         if (selectedPokemon.player) {
-           return onSelect({...selectedPokemon, opponent:id});
+            return onSelect({...selectedPokemon, opponent:id});
         }  
         onSelect({...selectedPokemon, player:id});
     };

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, Typography, Divider, Grid, Button } from '@material-ui/core';
-import PokemonCards from './PokemonCards'
 
 // Define styles to use
 const useStyles = makeStyles((theme) => ({
@@ -17,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
         height: '700px',
         position: 'absolute',
         top: '0px',
-        marginTop: '150px',
+        marginTop: '110px',
         borderRadius: '10px',
         borderBottomLeftRadius: '25px',
         borderBottomRightRadius: '25px',
@@ -60,7 +59,11 @@ const useStyles = makeStyles((theme) => ({
         background: 'linear-gradient(160deg,#315c34 0%, #cced60 80%)',
         marginTop: '2px', padding: '5px 50px',
         borderRadius: '50px',
-    }
+    },
+
+    typo: {
+        fontFamily: 'VT323, monospace'
+    },
 }));
 
 const Pokemon = ({ pokemon}) => {
@@ -116,7 +119,7 @@ const Pokemon = ({ pokemon}) => {
     )
 
 }        
-       
+
 export default Pokemon;
 
 

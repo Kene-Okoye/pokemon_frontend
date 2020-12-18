@@ -1,31 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import { Route, Switch, Link, useHistory } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Pokemons from './components/Pokemons';
 import Home from './components/Home'
-import classNames from 'classnames';
 import Particles from 'react-particles-js'; 
 import PokemonFight from './components/PokemonFight';
-
-const useStyles =  makeStyles((theme) => ({
-  gridMargin: {
-      [theme.breakpoints.up('sm')]: {
-          margin: '10px 50px'
-      },
-      [theme.breakpoints.down('sm')]: {
-        margin: '10px 20px'
-    }
-    },
-}))
-
 
 
 const App = () => {
 const [pokemons , setPokemons] = useState(null);
 let history = useHistory();
-console.log({pokemons: pokemons})
-const classes = useStyles();
+console.log({pokemons: pokemons});
 
 // Select 2 Pokemons 
 const [ selectedPokemon, setSelectedPokemon ] = useState({player: null, opponent: null});
@@ -46,7 +32,7 @@ useEffect (() => {
 },[]);
 
   return (
-    <div className="App" className={classNames(classes.gridMargin)} >
+    <div className="App" >
       <Particles className="particles" 
       params={{
         particles: {
@@ -164,7 +150,7 @@ useEffect (() => {
           background_size: "cover"
         }
       }}     /> 
-<Switch>
+      <Switch>
         <Route path="/pokemons/:id?" render ={(props) => <Pokemons pokemons = {pokemons} {...props} onSelect ={ setSelectedPokemon } selectedPokemon = {selectedPokemon}/>} />
         <Route path="/pokemoninfo">Pokemon Info Page</Route>
         <Route path="/pokemonfight" ><PokemonFight pokemons = {pokemons} selectedPokemon = {selectedPokemon} /></Route>
