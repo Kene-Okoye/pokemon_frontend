@@ -2,7 +2,7 @@
   "name": "pokemon_frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://pokemon-fight-backend.herokuapp.com/",
+  "proxy": "https://pokemon-fight-backend-app.herokuapp.com/",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
