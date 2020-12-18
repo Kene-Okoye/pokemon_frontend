@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Card, CardContent, Grid, Typography, CardMedia } from '@material-ui/core';
 import '../App.css';
+import NavBar from './NavBar';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -38,6 +38,8 @@ const useStyles = makeStyles((theme) => ({
     },
 
     fightButton: {
+        fontFamily: 'Goldman, cursive',
+        color: 'white',
         width: '120px',
         height: '40px',
         marginTop: '20px',
@@ -46,9 +48,15 @@ const useStyles = makeStyles((theme) => ({
     },
 
     fighterTypo: {
+        fontFamily: 'Goldman, cursive',
         textAlign: 'center',
         fontSize: '1.5rem',
         color: 'white'
+    },
+
+    winnerTypo: {
+        fontFamily: 'Goldman, cursive',
+        color: 'white',
     }
 
 }))
@@ -66,7 +74,8 @@ const PokemonFight = ( { pokemons, selectedPokemon } ) => {
 
     return (
         <>
-            <Button color='primary' variant="contained"><Link to='/pokemons' className={classes.backButton} >Back</Link></Button>
+            <NavBar/>
+            {/* <Button color='primary' variant="contained"><Link to='/pokemons' className={classes.backButton} >Back</Link></Button> */}
             <Grid container className={classes.gridContainer}>
                 <Grid xs={12}><Typography variant={'h5'} className={classes.fighterTypo}>VS</Typography></Grid>
                 
@@ -99,7 +108,7 @@ const PokemonFight = ( { pokemons, selectedPokemon } ) => {
                     const pokemonHDImage = `https://pokeres.bastionbot.org/images/pokemon/${pokemon.pokeDexData.id}.png`;
                     return <>
                     <Grid item xs={12} style={{textAlign: 'center'}} className={classes.gridItem}>
-                        <Typography variant={'h3'} style={{color: 'white'}}>Winner is {pokemon.pokeDexData.name.english}</Typography>
+                        <Typography variant={'h3'} className={classes.winnerTypo}>Winner is {pokemon.pokeDexData.name.english}</Typography>
                     </Grid> 
                     </>
                 })
